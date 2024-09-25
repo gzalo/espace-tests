@@ -1,0 +1,4 @@
+out.bin
+kernel.elf
+start.o
+main.o
