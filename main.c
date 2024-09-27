@@ -1,8 +1,6 @@
+#include <stdio.h>
+#include <stdint.h>
 #include "bmp.h"
-
-typedef unsigned int uint32_t;
-typedef unsigned short uint16_t;
-typedef unsigned char uint8_t;
 
 static volatile uint8_t framebuffer_int[800*480*3];
 static volatile uint32_t *framebuffer_src = (uint32_t*) framebuffer_int;
@@ -54,5 +52,6 @@ void displayInit(){
 int main(){
     while(1){
         displayInit();
+        printf("Hello %2d\n", 42);
     }
 }

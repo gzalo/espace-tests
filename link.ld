@@ -5,11 +5,29 @@ MEMORY
 
 SECTIONS
 {
-	.text : {
-		*(.text*);
-        *(.rodata*);
+    .text : {
+		*(.text)
+		*(.text*)
+	} > ram
+    . = ALIGN(4);
+	.data : {
+		*(.data);
 		*(.data*);
-		*(.bss.*);
-     } > ram
-
+    } > ram
+    . = ALIGN(4);
+    .rodata : {
+        *(.rodata);
+        *(.rodata*);
+    } > ram
+    . = ALIGN(4);
+    .bss : {
+		__bss_start__ = .;
+		*(.bss);
+		*(.bss*);
+		*(COMMON);
+		__bss_end__ = .;
+	    . = ALIGN(4);
+       	end = .;
+       	__end__ = .;
+    } > ram
 }

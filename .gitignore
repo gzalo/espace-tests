@@ -1,4 +1,4 @@
-out.bin
-kernel.elf
-start.o
-main.o
+*.bin
+*.elf
+*.o
+*.map
